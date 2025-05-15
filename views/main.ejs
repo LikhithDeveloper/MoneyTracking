@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="form">
+        <h3>Amount: <%= total[0]?.total || 0 %></h3>
+
+        <br />
+        <form method="post" action="/dc">
+          <label>Add amount:</label>
+          <input type="number" name="amount" id="inp1" required />
+          <br />
+          <br />
+          <label>Add Reason:</label>
+          <input type="text" name="reason" id="inp1" required />
+          <br />
+          <br />
+          <input type="submit" name="credit" value="Credit" id="sub" />
+          <br />
+          <br />
+          <input
+            type="submit"
+            value="Debit"
+            id="sub"
+            name="debit"
+            style="background-color: red"
+          />
+        </form>
+      </div>
+    </div>
+    <div class="main">
+      <% trans.forEach((ele,index) => { %>
+      <h4><%= ele.reason %>:<%= ele.money %>[<%= ele.type %>]</h4>
+      <% }) %>
+    </div>
+  </body>
+</html>
